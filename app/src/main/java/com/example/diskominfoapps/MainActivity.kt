@@ -15,6 +15,8 @@ import retrofit2.Response
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
+
+    //test
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapterRv: CdvNewsHeadlineAdapter
 

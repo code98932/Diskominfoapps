@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 data class ResponseNews(
 
 	@field:SerializedName("berita")
-	val berita: List<BeritaItem?>? = null
+	val berita: List<BeritaItem>? = null
 ):Parcelable
 
 @Parcelize

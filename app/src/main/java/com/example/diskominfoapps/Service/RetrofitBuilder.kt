@@ -1,7 +1,7 @@
 package com.gilbram.newsapi.Service
 
 
-import com.example.diskominfoapps.Service.ResponseNews2
+import com.example.diskominfoapps.Service.ResponseNews
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -22,5 +22,5 @@ object RetrofitBuilder {
 }
 interface TopHeadLine{
     @GET("json")
-    fun fetchHeadlines (): Call<ResponseNews2>
+    fun fetchHeadlines (): Call<ResponseNews>
 }

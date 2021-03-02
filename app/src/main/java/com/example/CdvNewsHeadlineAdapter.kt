@@ -7,13 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.size.Scale
 import coil.api.load
 import com.example.diskominfoapps.DetailActivity
-import com.example.diskominfoapps.Service.Berita
 import com.example.diskominfoapps.Service.BeritaItem
 import com.example.diskominfoapps.databinding.CdvNewsHeadlineBinding
 
 class CdvNewsHeadlineAdapter : RecyclerView.Adapter<CdvNewsHeadlieVH>(){
-    private val listData = ArrayList<Berita>()
-    fun addData(items: List<Berita>){
+    private val listData = ArrayList<BeritaItem>()
+    fun addData(items: List<BeritaItem>){
         listData.clear()
         listData.addAll(items)
         notifyDataSetChanged()
@@ -32,10 +31,10 @@ class CdvNewsHeadlineAdapter : RecyclerView.Adapter<CdvNewsHeadlieVH>(){
 }
 class CdvNewsHeadlieVH(private val binding: CdvNewsHeadlineBinding) :
     RecyclerView.ViewHolder(binding.root){
-    fun bind(article: Berita){
+    fun bind(article: BeritaItem){
         binding.run {
             txtTitle.text = cropText(article.judul?: "Tidak ada judul")
-            txtSubtitle.text = article.i_date
+            txtSubtitle.text = article.iDate
             imgHeadline.apply {
                 load(article.gambar){
                     scale(Scale.FILL)

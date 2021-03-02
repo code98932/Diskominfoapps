@@ -1,7 +1,7 @@
 package com.gilbram.newsapi.Service
 
 
-import com.example.diskominfoapps.Service.Response
+import com.example.diskominfoapps.Service.ResponseNews
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -23,5 +23,5 @@ object RetrofitBuilder {
 interface TopHeadLine{
     @Headers("Authorization: 730b49091db74e40b16924b153a77032")
     @GET("/v2/top-headlines?country=id")
-    fun fetchHeadlines (): Call<Response>
+    fun fetchHeadlines (): Call<ResponseNews>
 }

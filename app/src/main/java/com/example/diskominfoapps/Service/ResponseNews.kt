@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Response(
+data class ResponseNews(
 
 	@field:SerializedName("berita")
 	val berita: List<BeritaItem?>? = null

@@ -34,7 +34,7 @@ class CdvNewsHeadlieVH(private val binding: CdvNewsHeadlineBinding) :
     fun bind(article: BeritaItem){
         binding.run {
             txtTitle.text = cropText(article.judul?: "Tidak ada judul")
-            txtSubtitle.text = article.id
+            txtSubtitle.text = article.iDate
             imgHeadline.apply {
                 load(article.gambar){
                     scale(Scale.FILL)

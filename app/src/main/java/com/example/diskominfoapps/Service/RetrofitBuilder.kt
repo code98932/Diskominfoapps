@@ -21,5 +21,7 @@ object RetrofitBuilder {
 
 }
 interface TopHeadLine{
+    @Headers("Authorization: 730b49091db74e40b16924b153a77032")
+    @GET("/v2/top-headlines?country=id")
     fun fetchHeadlines (): Call<ResponseNews>
 }

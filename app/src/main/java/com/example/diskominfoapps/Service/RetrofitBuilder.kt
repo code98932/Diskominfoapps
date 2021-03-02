@@ -2,6 +2,7 @@ package com.gilbram.newsapi.Service
 
 
 import com.example.diskominfoapps.Service.ResponseNews
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -13,7 +14,7 @@ object RetrofitBuilder {
     private val client = OkHttpClient.Builder().build()
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://diskominfo.bekasikota.go.id/")
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
         .client(client)
         .build()
 
@@ -21,7 +22,6 @@ object RetrofitBuilder {
 
 }
 interface TopHeadLine{
-    @Headers("Authorization: 730b49091db74e40b16924b153a77032")
-    @GET("/v2/top-headlines?country=id")
+    @GET("json")
     fun fetchHeadlines (): Call<ResponseNews>
 }

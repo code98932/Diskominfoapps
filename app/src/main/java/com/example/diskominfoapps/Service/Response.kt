@@ -1,13 +1,17 @@
 package com.example.diskominfoapps.Service
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Response(
 
 	@field:SerializedName("berita")
 	val berita: List<BeritaItem?>? = null
-)
+):Parcelable
 
+@Parcelize
 data class BeritaItem(
 
 	@field:SerializedName("i_date")
@@ -24,4 +28,4 @@ data class BeritaItem(
 
 	@field:SerializedName("content")
 	val content: String? = null
-)
+):Parcelable

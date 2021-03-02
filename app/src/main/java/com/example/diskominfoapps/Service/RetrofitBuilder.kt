@@ -12,7 +12,7 @@ import retrofit2.http.Headers
 object RetrofitBuilder {
     private val client = OkHttpClient.Builder().build()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://diskominfo.bekasikota.go.id")
+        .baseUrl("https://diskominfo.bekasikota.go.id/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

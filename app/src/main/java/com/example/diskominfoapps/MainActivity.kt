@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.CdvNewsHeadlineAdapter
-import com.example.diskominfoapps.Service.ResponseNews
 import com.example.diskominfoapps.databinding.ActivityMainBinding
 import com.gilbram.newsapi.Service.RetrofitBuilder
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,15 +35,15 @@ class MainActivity : AppCompatActivity() {
             }
 
             val call =  RetrofitBuilder.getService().fetchHeadlines()
-            call.enqueue(object : Callback<ResponseNews> {
-                override fun onFailure(call: Call<ResponseNews>, t: Throwable) {
+            call.enqueue(object : Callback<com.example.diskominfoapps.Service.ResponseNews> {
+                override fun onFailure(call: Call<com.example.diskominfoapps.Service.ResponseNews>, t: Throwable) {
                     Timber.e(t)
                     Toast.makeText(applicationContext,t.message.toString(), Toast.LENGTH_SHORT).show()
 
                 }
                 override fun onResponse(
-                    call: Call<ResponseNews>,
-                    response: Response<ResponseNews>
+                    call: Call<com.example.diskominfoapps.Service.ResponseNews>,
+                    response: Response<com.example.diskominfoapps.Service.ResponseNews>
                 ) {
                     response.body()?.berita?.let {
                         adapterRv.addData(it)

@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         adapterRv = CdvNewsHeadlineAdapter()
         binding.run {
             setContentView(root)
-            setSupportActionBar(toolBar)
+//            setSupportActionBar(toolBar)
 
 
             main_rv.apply {

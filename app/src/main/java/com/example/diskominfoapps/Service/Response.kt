@@ -1,7 +1,10 @@
 package com.example.diskominfoapps.Service
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Response(
 
 	@field:SerializedName("feed")
@@ -12,15 +15,16 @@ data class Response(
 
 	@field:SerializedName("status")
 	val status: String? = null
-)
+):Parcelable
 
+@Parcelize
 data class ItemsItem(
 
 	@field:SerializedName("thumbnail")
 	val thumbnail: String? = null,
 
-	@field:SerializedName("enclosure")
-	val enclosure: Enclosure? = null,
+//	@field:SerializedName("enclosure")
+//	val enclosure: Enclosure? = null,
 
 	@field:SerializedName("author")
 	val author: String? = null,
@@ -34,19 +38,20 @@ data class ItemsItem(
 	@field:SerializedName("description")
 	val description: String? = null,
 
-	@field:SerializedName("categories")
-	val categories: List<Any?>? = null,
+//	@field:SerializedName("categories")
+//	val categories: List<Any?>? = null,
 
 	@field:SerializedName("title")
 	val title: String? = null,
 
-	@field:SerializedName("pubDate")
-	val pubDate: Any? = null,
+//	@field:SerializedName("pubDate")
+//	val pubDate: Any?,
 
 	@field:SerializedName("content")
 	val content: String? = null
-)
+):Parcelable
 
+@Parcelize
 data class Feed(
 
 	@field:SerializedName("image")
@@ -66,8 +71,10 @@ data class Feed(
 
 	@field:SerializedName("url")
 	val url: String? = null
-)
+):Parcelable
 
-data class Enclosure(
-	val any: Any? = null
-)
+//@Parcelize
+//data class Enclosure(
+//	val any: Any? = null
+//):Parcelable
+

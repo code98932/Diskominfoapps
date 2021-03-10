@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import coil.size.Scale
 import coil.api.load
-import com.example.diskominfoapps.Service.BeritaItem
+import com.example.diskominfoapps.Service.ItemsItem
 import com.example.diskominfoapps.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
@@ -18,22 +18,21 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
-        val data = intent.getParcelableExtra(DETAIL_NEWS) as BeritaItem?
+        val data = intent.getParcelableExtra(DETAIL_NEWS) as ItemsItem?
 
         binding.run {
             setContentView(root)
-            setSupportActionBar(toolBar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            title= data!!.judul
+            title= data!!.title
 
             imgToolbar.apply {
-                load(data.gambar){
+                load(data.link){
                     scale(Scale.FILL)
                 }
-                contentDescription = data.content
+                contentDescription = data.description
             }
-            txtContent.text= data .content
-            txtDate.text = data.iDate
+            txtContent.text= data .description
+//            txtDate.text = data.pubDate
         }
     }
 

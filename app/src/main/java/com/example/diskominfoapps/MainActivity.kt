@@ -36,15 +36,15 @@ class MainActivity : AppCompatActivity() {
             }
 
             val call =  RetrofitBuilder.getService().fetchHeadlines()
-            call.enqueue(object : Callback<com.example.diskominfoapps.Service.Response> {
-                override fun onFailure(call: Call<com.example.diskominfoapps.Service.Response>, t: Throwable) {
+            call.enqueue(object : Callback<com.example.diskominfoapps.Service.ResponseNews> {
+                override fun onFailure(call: Call<com.example.diskominfoapps.Service.ResponseNews>, t: Throwable) {
                     Timber.e(t)
                     Toast.makeText(applicationContext,t.message.toString(), Toast.LENGTH_SHORT).show()
 
                 }
                 override fun onResponse(
-                    call: Call<com.example.diskominfoapps.Service.Response>,
-                    response: Response<com.example.diskominfoapps.Service.Response>
+                    call: Call<com.example.diskominfoapps.Service.ResponseNews>,
+                    response: Response<com.example.diskominfoapps.Service.ResponseNews>
                 ) {
                     response.body()?.items?.let {
                         adapterRv.addData(it as List<ItemsItem>)

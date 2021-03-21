@@ -1,26 +1,38 @@
 package com.gilbram.newsapi.Service
 
 
-import com.example.diskominfoapps.Service.Response
+import android.accessibilityservice.GestureDescription
+import com.example.diskominfoapps.Service.ResponseNews
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+
 object RetrofitBuilder {
     private val client = OkHttpClient.Builder().build()
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.rss2json.com/v1/")
-        .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+
+    var gson = GsonBuilder()
+        .setLenient()
+        .create()
+
+    var retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("https://www.bekasikota.go.id/")
         .client(client)
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
     fun getService() = retrofit.create(TopHeadLine::class.java)
 
-}
-interface TopHeadLine{
-    @GET("api.json?rss_url=https%3A%2F%2Fwww.bekasikota.go.id%2Frss")
-    fun fetchHeadlines (): Call<Response>
+    interface TopHeadLine {
+        @GET("rss")
+        fun fetchHeadlines(): Call<ResponseNews>
+
+    }
+
+
+
 }

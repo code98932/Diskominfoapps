@@ -34,12 +34,12 @@ class CdvNewsHeadlieVH(private val binding: CdvNewsHeadlineBinding) :
     fun bind(article: ItemsItem){
         binding.run {
             txtTitle.text = cropText(article.title?: "Tidak ada judul")
-            imgHeadline.apply {
-                load(article.link){
-                    scale(Scale.FILL)
-                }
-                contentDescription = article.description
-            }
+//            imgHeadline.apply {
+//                load(article.link){
+//                    scale(Scale.FILL)
+//                }
+//                contentDescription = article.description
+//            }
             root.setOnClickListener {
                 val intent = Intent(it.context, DetailActivity::class.java).apply {
                     putExtra(DetailActivity.DETAIL_NEWS, article)
